@@ -30,12 +30,12 @@ javascript（js）
 
 环境搭建
 
+> 开发时：微信开发者工具设置，不校验合法域名、web-view(业务域名)、TLS版本及https证书
+
 - 下载开发者工具
 - 注册小程序（ID）
 - 开发
 - django + drf
-
-
 
 
 
