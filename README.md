@@ -37,5 +37,11 @@ javascript（js）
 - 开发
 - django + drf
 
-
+> 微信开发工具 IDE配置
+>
+> project.config.json
+>
+> project.private.config.json
+>
+> sitemap.json
 
