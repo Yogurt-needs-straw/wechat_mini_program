@@ -45,7 +45,15 @@ javascript（js）
 >
 > sitemap.json
 
+- 微信小程序标签
+
+```bash
+text\span
+view\div
+image\img
+icon
+navigator\a
+```
 
 
-纯净版项目
 
