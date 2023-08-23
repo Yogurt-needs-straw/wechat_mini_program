@@ -55,5 +55,19 @@ icon
 navigator\a
 ```
 
-123
+> 微信小程序 通过setData绑定添加列表项
+
+```js
+changeName(){
+    var info = this.data.nameList;
+    info.push("alex")
+    console.log(info);
+    
+    this.setData({
+        nameList:info
+    });
+}
+```
+
+
 
