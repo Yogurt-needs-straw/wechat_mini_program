@@ -55,7 +55,9 @@ icon
 navigator\a
 ```
 
-> 微信小程序 通过setData绑定添加列表项
+> 微信小程序 数据展示和绑定
+>
+> 通过setData绑定添加列表项
 
 ```js
 changeName(){
@@ -69,5 +71,5 @@ changeName(){
 }
 ```
 
-
+微信API
 
