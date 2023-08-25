@@ -73,3 +73,20 @@ changeName(){
 
 微信API
 
+样式相关
+
+- 像素 rpx(750rpx)
+- 布局 flex
+- 更多 icon（fontawesome）
+  - TTF > base64
+  - 引入项目
+  - https://cloud.tencent.com/developer/article/1969962
+
+
+
+
+
+
+
+
+
