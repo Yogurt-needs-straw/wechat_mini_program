@@ -84,9 +84,13 @@ changeName(){
 
 
 
+**tarBar  底部菜单栏**
 
+- position
 
-
-
-
+- list
+  - pagePath
+  - text
+  - iconPath
+  - selectedIconPath 选中图标
 
