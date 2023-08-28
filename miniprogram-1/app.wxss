@@ -1,0 +1,2 @@
+@import './style/font-awesome.wxss';
+@import './style/stylesheet.wxss';

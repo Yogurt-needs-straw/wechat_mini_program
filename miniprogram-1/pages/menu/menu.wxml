@@ -1,32 +1,32 @@
 <view class="container">
 
 <navigator class="menu" url="/pages/index/index" >
-  <label class="fa fa-superpowers" style="color:#32CD32"></label>
+  <text class="far fa-superpowers" style="color:#32CD32"></text>
   <view>信息采集</view>
 </navigator>
 
 <navigator class="menu" url="/pages/face/face">
-  <label class="fa fa-meh-o" style="color:#FFA500"></label>
+  <text class="far fa-meh-o" style="color:#FFA500"></text>
   <view>人脸检测</view>
 </navigator>
 
 <navigator class="menu" url="/pages/activity/activity">
-  <label class="fa fa-bell-o" style="color:#87CEFA"></label>
+  <text class="far fa-bell-o" style="color:#87CEFA"></text>
   <view>社区活动</view>
 </navigator>
 
 <navigator class="menu" url="/pages/voice/voice">
-  <label class="fa fa-microphone" style="color:#7D9EC0"></label>
+  <text class="far fa-microphone" style="color:#7D9EC0"></text>
   <view>语音识别</view>
 </navigator>
 
 <navigator class="menu" >
-  <label class="fa fa fa-heartbeat" style="color:#EE0000"></label>
+  <text class="far fa-heartbeatt" style="color:#EE0000"></text>
   <view>心率检测</view>
 </navigator>
 
 <navigator class="menu" >
-  <label class="fa fa-credit-card" style="color:#778899"></label>
+  <text class="far fa-credit-card" style="color:#778899"></text>
   <view>积分兑换商城</view>
 </navigator>
 
