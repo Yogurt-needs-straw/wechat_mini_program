@@ -1,21 +1,21 @@
 <view class="container">
 
-<navigator class="menu" url="/pages/index/index" >
+<navigator class="menu" >
   <text class="fa-solid fa-pen-to-square" style="color:#32CD32"></text>
   <view>信息采集</view>
 </navigator>
 
-<navigator class="menu" url="/pages/face/face">
+<navigator class="menu" >
   <text class="fa-solid fa-face-smile" style="color:#FFA500"></text>
   <view>人脸检测</view>
 </navigator>
 
-<navigator class="menu" url="/pages/activity/activity">
+<navigator class="menu" >
   <text class="fa-regular fa-image" style="color:#87CEFA"></text>
   <view>社区活动</view>
 </navigator>
 
-<navigator class="menu" url="/pages/voice/voice">
+<navigator class="menu" >
   <text class="fa-solid fa-star" style="color:#7D9EC0"></text>
   <view>语音识别</view>
 </navigator>
