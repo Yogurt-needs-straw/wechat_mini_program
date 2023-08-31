@@ -1,28 +1,29 @@
 {
-  "pages":[
+  "pages": [
     "pages/menu/menu",
     "pages/info/info",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/index/index"
   ],
   "tabBar": {
     "selectedColor": "#b4282d",
     "position": "bottom",
     "list": [
       {
-        "pagePath":"pages/menu/menu",
+        "pagePath": "pages/menu/menu",
         "text": "首页"
       },
       {
-        "pagePath":"pages/mine/mine",
+        "pagePath": "pages/mine/mine",
         "text": "我的"
       }
     ]
   },
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "智慧社区",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

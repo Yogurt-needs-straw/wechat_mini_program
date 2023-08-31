@@ -1,6 +1,6 @@
 <view class="container">
 
-<navigator class="menu" >
+<navigator class="menu" url="/pages/index/index">
   <text class="fa-solid fa-pen-to-square" style="color:#32CD32"></text>
   <view>信息采集</view>
 </navigator>

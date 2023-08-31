@@ -1,0 +1,13 @@
+/* pages/index/index.wxss */
+
+.top {
+  background-color: #01ccb6;
+  height: 200rpx;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+
