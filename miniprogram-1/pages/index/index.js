@@ -5,7 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    dataDict:{
+      data:[
+        {
+          "id":45,
+          "name":"xxx",
+          "area":"#1",
+          "avatar":"https://swerwerw"
+        }
+      ]
+    }
   },
 
   /**

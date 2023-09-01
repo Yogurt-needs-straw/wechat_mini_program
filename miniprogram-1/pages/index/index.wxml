@@ -36,12 +36,12 @@
               <label class="en"> | AREA</label>
             </view>
             <view class="area"> 
-              <label class="fa fa-map-marker"></label> {{row.area}} 
+              <label class="fa-solid fa-map-marker"></label> {{row.area}} 
             </view>
           </view>
         </view>
         <view class="delete" bindtap="doDeleteRow" data-nid="{{row.id}}" data-index="{{index}}" >
-          <label class="fa fa-trash"></label>
+          <label class="fa-solid fa-trash"></label>
         </view>
       </view>
     </view>
