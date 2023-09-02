@@ -11,17 +11,40 @@ Page({
           "id":45,
           "name":"xxx",
           "area":"#1",
-          "avatar":"https://swerwerw"
+          "avatar":"https://www.baidu.com"
         }
-      ]
+      ],
+      today_count:10,
+      total_count:100,
     }
+  },
+
+  refresh(){
+    // 1.发送网络请求
+    // 2.数据绑定
+    wx.showLoading({
+      mask: true,
+    })
+    wx.request({
+      url: "https:localhost/api/bank/", 
+      method:"GET",
+      success:(res)=>{
+        this.setData({
+          dataDict:res.data
+        })
+      },
+      complete(){
+        wx.hideLoading()
+      }
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      // 发送网络请求..
+      this.refresh();
   },
 
   /**
@@ -56,7 +79,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.refresh();
   },
 
   /**
