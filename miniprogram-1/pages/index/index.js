@@ -39,6 +39,53 @@ Page({
     })
   },
 
+  doDeleteRow(e){
+    wx.showModal({
+      title:'确认是否删除',
+      confirmColor: '#ff461f',
+      success:(res)=>{
+          if(!res.confirm){
+            return
+          }
+          var nid = e.currentTarget.dataset.nid
+          var index = e.currentTarget.dataset.index
+          var dataList = this.data.dataDict.data
+          dataList.splice(index, 1)
+
+          // wx.showLoading({
+          //   title: '删除中',
+          //   mask:true
+          // })
+
+          // // 删除请求
+          // wx.request({
+          //   url: api.bank + nid + '/',
+          //   method:'DELETE',
+          //   success:(res)=>{
+          //     let total_count = this.data.dataDict.total_count - 1
+          //     if(total_count<0){
+          //       total_count = 0
+          //     }
+
+          //     let today_count = this.data.dataDict.today_count - 1
+          //     if(today_count<0){
+          //       total_today_countcount = 0
+          //     }
+
+          //     this.setData({
+          //       ["dataDict.data"]:dataList,
+          //       ["dataDict.total_count"]:total_count,
+          //       ["dataDict.today_count"]:today_count
+          //     })
+          //   },
+          //   complete(){
+          //     wx.hideLoading()
+          //   }
+          // })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
