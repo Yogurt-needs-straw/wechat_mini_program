@@ -94,3 +94,13 @@ changeName(){
   - iconPath
   - selectedIconPath 选中图标
 
+
+
+## 2.智慧社区DEMO
+
+### 2.1 菜单页
+
+### 2.2 采集列表
+
+- 后端：正常API + 简易版API
+
