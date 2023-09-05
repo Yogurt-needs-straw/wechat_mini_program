@@ -13,7 +13,7 @@ class UserInfo(models.Model):
 
     area = models.IntegerField(verbose_name='网格', choices=area_choices)
     name = models.CharField(verbose_name='姓名', max_length=32)
-    avatar = models.FileField(verbose_name='头像',max_length=128, upload_to='bank/%Y')
+    avatar = models.FileField(verbose_name='头像',max_length=128, upload_to='bank/%Y/%m/%d')
     create_date = models.DateField(verbose_name='日期', auto_now_add=True)
 
     face_token = models.CharField(verbose_name="FaceToken", max_length=32)
