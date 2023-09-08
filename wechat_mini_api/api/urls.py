@@ -1,5 +1,7 @@
-import api.views as bank
+
 from django.urls import re_path
+
+from api.views import bank
 
 urlpatterns = [
     re_path('bank/', bank.BankView.as_view()),

@@ -1,4 +1,7 @@
 // pages/index/index.js
+
+const api = require("../../config/api.js")
+
 Page({
 
   /**
@@ -26,7 +29,7 @@ Page({
       mask: true,
     })
     wx.request({
-      url: "https:localhost/api/bank/", 
+      url: api.bank, 
       method:"GET",
       success:(res)=>{
         this.setData({
@@ -52,36 +55,36 @@ Page({
           var dataList = this.data.dataDict.data
           dataList.splice(index, 1)
 
-          // wx.showLoading({
-          //   title: '删除中',
-          //   mask:true
-          // })
+          wx.showLoading({
+            title: '删除中',
+            mask:true
+          })
 
-          // // 删除请求
-          // wx.request({
-          //   url: api.bank + nid + '/',
-          //   method:'DELETE',
-          //   success:(res)=>{
-          //     let total_count = this.data.dataDict.total_count - 1
-          //     if(total_count<0){
-          //       total_count = 0
-          //     }
+          // 删除请求
+          wx.request({
+            url: api.bank + nid + '/',
+            method:'DELETE',
+            success:(res)=>{
+              let total_count = this.data.dataDict.total_count - 1
+              if(total_count<0){
+                total_count = 0
+              }
 
-          //     let today_count = this.data.dataDict.today_count - 1
-          //     if(today_count<0){
-          //       total_today_countcount = 0
-          //     }
+              let today_count = this.data.dataDict.today_count - 1
+              if(today_count<0){
+                total_today_countcount = 0
+              }
 
-          //     this.setData({
-          //       ["dataDict.data"]:dataList,
-          //       ["dataDict.total_count"]:total_count,
-          //       ["dataDict.today_count"]:today_count
-          //     })
-          //   },
-          //   complete(){
-          //     wx.hideLoading()
-          //   }
-          // })
+              this.setData({
+                ["dataDict.data"]:dataList,
+                ["dataDict.total_count"]:total_count,
+                ["dataDict.today_count"]:today_count
+              })
+            },
+            complete(){
+              wx.hideLoading()
+            }
+          })
       }
     })
   },
