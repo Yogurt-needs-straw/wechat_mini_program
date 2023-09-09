@@ -3,7 +3,8 @@
     "pages/menu/menu",
     "pages/info/info",
     "pages/mine/mine",
-    "pages/index/index"
+    "pages/index/index",
+    "pages/form/form"
   ],
   "tabBar": {
     "selectedColor": "#b4282d",

@@ -22,6 +22,12 @@ Page({
     }
   },
 
+  bindToForm(e){
+    wx.navigateTo({
+      url: '/pages/form/form',
+    })
+  },
+
   refresh(){
     // 1.发送网络请求
     // 2.数据绑定
