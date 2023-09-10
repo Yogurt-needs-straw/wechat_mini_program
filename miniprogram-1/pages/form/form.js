@@ -5,7 +5,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    avatar:"/images/camera.png",
+    objectArray: [{
+      id: 1,
+      name: '#19'
+    },
+    {
+      id: 2,
+      name: '#20'
+    },
+    {
+      id: 3,
+      name: '#21'
+    },
+    {
+      id: 4,
+      name: '#22'
+    }
+  ],
   },
 
   /**
