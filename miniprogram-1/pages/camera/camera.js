@@ -1,44 +1,11 @@
-// pages/form/form.js
+// pages/camera/camera.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    avatar:"/images/camera.png",
-    objectArray: [{
-      id: 1,
-      name: '#19'
-    },
-    {
-      id: 2,
-      name: '#20'
-    },
-    {
-      id: 3,
-      name: '#21'
-    },
-    {
-      id: 4,
-      name: '#22'
-    }
-  ],
-  index:-1,
-  name:""
-  },
 
-  bindPickerChange(e){
-    this.setData({
-      index:e.detail.value
-    })
-  },
-
-  bindNameChange(e){},
-
-  bindToCamera(e){
-    wx.navigateTo({
-      url: '/pages/camera/camera',
-    })
   },
 
   /**
