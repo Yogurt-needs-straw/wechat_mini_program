@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    // 默认前置摄像头
+    backFront:true,
   },
 
   /**

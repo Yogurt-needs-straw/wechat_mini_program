@@ -29,6 +29,18 @@
           "pathName": "pages/form/form",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/camera/camera",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/camera/camera",
+          "query": "",
+          "scene": null
         }
       ]
     }
