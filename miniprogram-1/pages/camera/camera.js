@@ -9,6 +9,34 @@ Page({
     backFront:true,
   },
 
+  switchCamera(e) {
+    var old = this.data.backFront
+    this.setData({
+      backFront: !old
+    })
+  },
+
+  takePhoto:function(){
+    const ctx = wx.createCameraContext()
+    ctx.takePhoto({
+      quality: 'high',
+      success: (res) => {    
+        // 获取照片 
+        //console.log(res);
+
+        // 对上一个页面中的值，进行修改
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length - 2];
+        prevPage.setData({
+          avatar: res.tempImagePath
+        })
+
+        //跳转会上一个页面  [v1,v2,v2]
+        wx.navigateBack({});
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
