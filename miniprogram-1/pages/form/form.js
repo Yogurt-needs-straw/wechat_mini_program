@@ -27,6 +27,46 @@ Page({
   name:""
   },
 
+  postUser(e){
+    wx.showLoading({
+      title: '提交中',
+      mask:true
+    })
+
+    wx.uploadFile({
+      url: api.bank,
+      filePath: this.data.avatar,
+      name: 'avatar',
+      formData: {
+        'name': this.data.name,
+        'area': this.data.objectArray[this.data.index].id
+      },
+      success(res) {
+        // console.log(res);
+        // 上一个页面新增数据
+        var dataDict = JSON.parse(res.data)
+        var row = {
+          id: dataDict.id,
+          area: dataDict.area_text,
+          name: dataDict.name,
+          avatar: dataDict.avatar,
+        }
+        var pages = getCurrentPages();
+        var prevPage = pages[pages.length - 2]; //上一个页面
+        prevPage.addRow(row)
+
+        wx.navigateBack({})
+
+        // 跳转会上一页
+        wx.navigateBack({});
+     
+      },
+      complete() {
+        wx.hideLoading()
+      }
+    })
+  },
+
   bindPickerChange(e){
     this.setData({
       index:e.detail.value
