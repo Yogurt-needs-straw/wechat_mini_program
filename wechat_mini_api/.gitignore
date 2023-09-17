@@ -13,6 +13,7 @@ db.sqlite3
 
 # media
 media/
+/media
 
 # database migrations
 */migrations/*.py
