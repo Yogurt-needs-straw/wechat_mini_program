@@ -22,6 +22,16 @@ Page({
     }
   },
 
+  addRow(row){
+    var dataList = this.data.dataDict.data
+    dataList.unshift(row)
+    this.setData({
+      ["dataDict.data"]:dataList,
+      ["dataDict.total_count"]:this.data.dataDict.total_count + 1,
+      ["dataDict.today_count"]:this.data.dataDict.today_count + 1
+    })
+  },
+
   bindToForm(e){
     wx.navigateTo({
       url: '/pages/form/form',

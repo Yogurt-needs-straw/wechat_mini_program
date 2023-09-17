@@ -55,7 +55,7 @@ Page({
         }
         var pages = getCurrentPages();
         var prevPage = pages[pages.length - 2]; //上一个页面
-        console.log(row)
+        // console.log(row)
         prevPage.addRow(row)
 
         wx.navigateBack({})
