@@ -22,6 +22,12 @@ Page({
     }
   },
 
+  bindToStatistics(e){
+    wx.navigateTo({
+      url: '/pages/statistics/statistics',
+    })
+  },
+
   addRow(row){
     var dataList = this.data.dataDict.data
     dataList.unshift(row)
