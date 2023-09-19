@@ -56,4 +56,8 @@ class BankCreateModelSerializer(ModelSerializer):
         data['uid'] = uid
         return data
 
+class StatisticsListSerializer(serializers.Serializer):
+    create_date = serializers.DateField(format="%Y-%m-%d")
+    count = serializers.IntegerField()
+
 

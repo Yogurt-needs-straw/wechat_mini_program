@@ -10,7 +10,7 @@ from rest_framework import status
 from rest_framework.filters import BaseFilterBackend
 
 from api import models
-from api.serializers.bank import BankCreateModelSerializer, BankListModelSerializer
+from api.serializers.bank import BankCreateModelSerializer, BankListModelSerializer, StatisticsListSerializer
 
 
 class BankView(ListAPIView, CreateAPIView, DestroyAPIView):
@@ -27,5 +27,11 @@ class BankView(ListAPIView, CreateAPIView, DestroyAPIView):
         ai.delete(user_object.uid, user_object.face_token)
         response = super().delete(request, *args, **kwargs)
         return response
+
+
+class StatisticsView(ListAPIView):
+    queryset = models.UserInfo.objects.values('create_date').annotate(count=Count('create_date')).order_by(
+        "-create_date")
+    serializer_class = StatisticsListSerializer
 
 
