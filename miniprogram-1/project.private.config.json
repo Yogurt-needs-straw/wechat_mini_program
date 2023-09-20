@@ -41,6 +41,12 @@
           "pathName": "pages/camera/camera",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/statistics/statistics",
+          "query": "",
+          "scene": null
         }
       ]
     }
