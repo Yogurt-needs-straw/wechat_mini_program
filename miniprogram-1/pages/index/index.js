@@ -19,6 +19,7 @@ Page({
       ],
       today_count:10,
       total_count:100,
+      lastId:10,
     }
   },
 

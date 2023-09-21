@@ -11,7 +11,7 @@ from rest_framework.filters import BaseFilterBackend
 
 from api import models
 from api.serializers.bank import BankCreateModelSerializer, BankListModelSerializer, StatisticsListSerializer
-
+from rest_framework.pagination import LimitOffsetPagination
 
 class BankView(ListAPIView, CreateAPIView, DestroyAPIView):
     queryset = models.UserInfo.objects.all().order_by("-id")

@@ -104,3 +104,25 @@ changeName(){
 
 - 后端：正常API + 简易版API
 
+### 2.3 问题：数据分页
+
+​	使用页面触底事件的处理函数，实现分页
+
+```js
+- 小程序
+/**
+  * 页面上拉触底事件的处理函数
+  */
+  onReachBottom: function () {
+	// 加载数据
+    // 1.获取上次的最新的ID
+    // 2.后端发送请求 lastid = 10
+    // 3.push
+    // 4.最后ID更新
+  },
+- 后端API (drf) 
+	- 页面：/api/bank/?page=10&size=20
+    - limit:LimitOffsetPagination
+	- id > lastid + 10条
+```
+
