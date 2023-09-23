@@ -6,7 +6,8 @@
     "pages/index/index",
     "pages/form/form",
     "pages/camera/camera",
-    "pages/statistics/statistics"
+    "pages/statistics/statistics",
+    "pages/face/face"
   ],
   "tabBar": {
     "selectedColor": "#b4282d",

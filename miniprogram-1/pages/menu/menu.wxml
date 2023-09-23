@@ -5,7 +5,7 @@
   <view>信息采集</view>
 </navigator>
 
-<navigator class="menu" >
+<navigator class="menu" url="/pages/face/face">
   <text class="fa-solid fa-face-smile" style="color:#FFA500"></text>
   <view>人脸检测</view>
 </navigator>
