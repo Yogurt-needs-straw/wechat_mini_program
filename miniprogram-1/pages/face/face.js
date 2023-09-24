@@ -1,4 +1,6 @@
 // pages/face/face.js
+const api = require("../../config/api.js")
+
 Page({
 
   /**
@@ -28,7 +30,7 @@ Page({
             let data = JSON.parse(response.data)
             if(data.status){
               data.content.avatar = res.tempImagePath
-
+              // 将结果返回
               var oldRecord = this.data.record
               oldRecord.unshift(data.content)
               console.log(oldRecord)

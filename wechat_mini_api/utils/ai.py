@@ -40,7 +40,7 @@ def register_image(user_id, user_info, file_object, group_id="test"):
 def search(file_object):
     # 1. 获取 access token
     # client_id 为官网获取的AK， client_secret 为官网获取的SK
-    host = 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=INgt7t4eNaXZ4AoeN2cQICzi&client_secret=QgApMABK25gVxs8p1ck9Sh9MrSL8Y12R'
+    host = 'https://aip.baidubce.com/oauth/2.0/token?grant_type=client_credentials&client_id=EG8G8qbSbM0WUO2gf9IeGiqh&client_secret=HUuB8BkQofdKx4VA3djavL63AKM3ge2H'
     response = requests.get(host)
     access_token = response.json().get("access_token")
 

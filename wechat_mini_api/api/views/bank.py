@@ -35,3 +35,16 @@ class StatisticsView(ListAPIView):
     serializer_class = StatisticsListSerializer
 
 
+class FaceView(APIView):
+    """
+    人脸检测，用户提交图片，后台根据图片进行人脸搜索。
+    """
+
+    def post(self, request, *args, **kwargs):
+        avatar_object = request.data.get('avatar')
+        if not avatar_object:
+            return Response({"msg": "未提交图像", "status": False})
+        from utils import ai
+        result = ai.search(avatar_object)
+        return Response({"content": result, "status": True})
+
