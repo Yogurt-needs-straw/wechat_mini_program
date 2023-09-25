@@ -15,7 +15,7 @@
   <view>社区活动</view>
 </navigator>
 
-<navigator class="menu" >
+<navigator class="menu" url="/pages/voice/voice">
   <text class="fa-solid fa-star" style="color:#7D9EC0"></text>
   <view>语音识别</view>
 </navigator>
