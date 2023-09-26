@@ -48,3 +48,12 @@ class FaceView(APIView):
         result = ai.search(avatar_object)
         return Response({"content": result, "status": True})
 
+
+class VoiceView:
+    def post(self, request, *args, **kwargs):
+        voice_object = request.data.get('voice')
+        from utils import ai
+        result = ai.speed(voice_object)
+        # {'corpus_no': '6847771638436561158', 'result': ['你是不是打过来？'], 'sn': '15921476781594371078', 'err_msg': 'success.', 'err_no': 0}
+        return Response(result)
+

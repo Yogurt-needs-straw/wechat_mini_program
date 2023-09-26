@@ -99,9 +99,9 @@ def delete(user_id, face_token, group_id="test"):
 
 def speed(file_object):
     from aip import AipSpeech
-    APP_ID = '21212118'
-    API_KEY = '5RYoUwOCHcexcWfa2iRC0ftq'
-    SECRET_KEY = 'GQQkpl5sOZPdA90kmLPIO4oRenwmhBFG'
+    APP_ID = '40038421'
+    API_KEY = 'rqFEx7Qx6fb91GsVUW5Uo5bC'
+    SECRET_KEY = 'XlLbbZXZcGrjCiODUnfEh5u8IcRtU8L5'
     client = AipSpeech(APP_ID, API_KEY, SECRET_KEY)
     data = file_object.read()
     # 识别本地文件
