@@ -49,7 +49,7 @@ class FaceView(APIView):
         return Response({"content": result, "status": True})
 
 
-class VoiceView:
+class VoiceView(APIView):
     def post(self, request, *args, **kwargs):
         voice_object = request.data.get('voice')
         from utils import ai
