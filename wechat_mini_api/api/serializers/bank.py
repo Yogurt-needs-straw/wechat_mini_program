@@ -60,4 +60,18 @@ class StatisticsListSerializer(serializers.Serializer):
     create_date = serializers.DateField(format="%Y-%m-%d")
     count = serializers.IntegerField()
 
+class ActivityModelListSerializer(ModelSerializer):
+    # date = serializers.DateField(format="%Y-%m-%d")
+    disabled = serializers.SerializerMethodField()
+
+    class Meta:
+        model = models.Activity
+        fields = "__all__"
+
+    def get_disabled(self, row):
+        today = datetime.date.today()
+        if row.date > today:
+            return False
+        return True
+
 

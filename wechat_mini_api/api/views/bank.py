@@ -10,7 +10,8 @@ from rest_framework import status
 from rest_framework.filters import BaseFilterBackend
 
 from api import models
-from api.serializers.bank import BankCreateModelSerializer, BankListModelSerializer, StatisticsListSerializer
+from api.serializers.bank import BankCreateModelSerializer, BankListModelSerializer, StatisticsListSerializer, \
+    ActivityModelListSerializer
 from rest_framework.pagination import LimitOffsetPagination
 
 class BankView(ListAPIView, CreateAPIView, DestroyAPIView):
@@ -57,3 +58,7 @@ class VoiceView(APIView):
         # {'corpus_no': '6847771638436561158', 'result': ['你是不是打过来？'], 'sn': '15921476781594371078', 'err_msg': 'success.', 'err_no': 0}
         return Response(result)
 
+
+class ActivityView(ListAPIView):
+    queryset = models.Activity.objects.all().order_by('-date')
+    serializer_class = ActivityModelListSerializer
