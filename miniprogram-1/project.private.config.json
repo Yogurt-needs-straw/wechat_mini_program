@@ -53,6 +53,12 @@
           "pathName": "pages/voice/voice",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/activity/activity",
+          "query": "",
+          "scene": null
         }
       ]
     }

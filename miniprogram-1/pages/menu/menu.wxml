@@ -10,7 +10,7 @@
   <view>人脸检测</view>
 </navigator>
 
-<navigator class="menu" >
+<navigator class="menu" url="/pages/activity/activity">
   <text class="fa-regular fa-image" style="color:#87CEFA"></text>
   <view>社区活动</view>
 </navigator>

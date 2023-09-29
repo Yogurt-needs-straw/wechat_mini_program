@@ -8,7 +8,8 @@
     "pages/camera/camera",
     "pages/statistics/statistics",
     "pages/face/face",
-    "pages/voice/voice"
+    "pages/voice/voice",
+    "pages/activity/activity"
   ],
   "tabBar": {
     "selectedColor": "#b4282d",
