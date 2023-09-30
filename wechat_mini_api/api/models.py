@@ -29,3 +29,9 @@ class Activity(models.Model):
     count = models.IntegerField(verbose_name='报名人数', default=0)
     score = models.IntegerField(verbose_name="积分", default=0)
 
+class JoinRecord(models.Model):
+    """ 活动报名记录 """
+    user = models.ForeignKey(verbose_name='用户', to="UserInfo", on_delete=models.CASCADE)
+    activity = models.ForeignKey(verbose_name="活动", to="Activity", on_delete=models.CASCADE, related_name='ac')
+
+    exchange = models.BooleanField(verbose_name="是否已兑换", default=False)
