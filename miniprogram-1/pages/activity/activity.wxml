@@ -10,7 +10,7 @@
       <view class="date"><label class="fa fa-calendar"></label>  活动日期: {{item.date}}</view>
     </view>
     <view class="right">
-      <button type="primary" bindtap="doApply" data-aid="{{item.id}}">报名</button>
+      <button type="primary" disabled="{{item.disabled}}" bindtap="doApply" data-aid="{{item.id}}">报名</button>
     </view>
   </view>
 

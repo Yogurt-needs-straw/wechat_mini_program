@@ -1,4 +1,6 @@
 // pages/activity/activity.js
+const api = require("../../config/api.js")
+
 var app = getApp()
 
 Page({
@@ -41,7 +43,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // 发送网络请求，获取社区活动
+    wx.request({
+      method:"GET",
+      url: api.bankActivity,
+      data:{},
+      success:(res) => {
+        console.log(res.data);
+        this.setData({
+          activityList:res.data
+        })
+      }
+    })
   },
 
   /**

@@ -24,7 +24,7 @@ class Activity(models.Model):
     """ 活动 """
     title = models.CharField(verbose_name="活动标题", max_length=128)
     text = models.TextField(verbose_name="活动描述", null=True, blank=True)
-    date = models.DateField(verbose_name="活动日期")
+    date = models.DateField(verbose_name="举办活动日期")
 
     count = models.IntegerField(verbose_name='报名人数', default=0)
     score = models.IntegerField(verbose_name="积分", default=0)
