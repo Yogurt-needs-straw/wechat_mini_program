@@ -19,7 +19,8 @@ Page({
         "count": 0,
         "score": 10
     }
-    ]
+    ],
+    maxId:0, // 最大的ID
   },
 
   doApply(nid){
@@ -49,6 +50,7 @@ Page({
       url: api.bankActivity,
       data:{},
       success:(res) => {
+        this.data.maxId = res.data[0]['id']
         console.log(res.data);
         this.setData({
           activityList:res.data
@@ -89,7 +91,19 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    wx.showLoading({
+      title: '加载中',
+    })
 
+    // 获取最新数据
+    // 1.获取哪些数据？
+
+    wx.stopPullDownRefresh({
+      success: (res) => {},
+    })
+    wx.hideLoading({
+      success: (res) => {},
+    })
   },
 
   /**

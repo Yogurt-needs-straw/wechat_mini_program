@@ -60,7 +60,7 @@ class VoiceView(APIView):
 
 
 class ActivityView(ListAPIView):
-    queryset = models.Activity.objects.all().order_by('-date')
+    queryset = models.Activity.objects.all().order_by('-id')
     serializer_class = ActivityModelListSerializer
 
 
