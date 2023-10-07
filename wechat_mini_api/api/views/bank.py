@@ -58,9 +58,17 @@ class VoiceView(APIView):
         # {'corpus_no': '6847771638436561158', 'result': ['你是不是打过来？'], 'sn': '15921476781594371078', 'err_msg': 'success.', 'err_no': 0}
         return Response(result)
 
+from rest_framework.filters import BaseFilterBackend
+class PullDownFilter(BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        max_id = request.query_params.get("max_id")
+        if max_id:
+            queryset = queryset.filter(id__gt=max_id)
+        return queryset
+
 
 class ActivityView(ListAPIView):
     queryset = models.Activity.objects.all().order_by('-id')
     serializer_class = ActivityModelListSerializer
-
+    filter_backends = [PullDownFilter]
 

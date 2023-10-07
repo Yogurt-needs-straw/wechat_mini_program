@@ -97,6 +97,30 @@ Page({
 
     // 获取最新数据
     // 1.获取哪些数据？
+    // console.log(this.data.maxId)
+
+    
+
+    // 发送网络请求，获取社区活动
+    wx.request({
+      method:"GET",
+      url: api.bankActivity,
+      data:{max_id:this.data.maxId},
+      success:(res) => {
+        var response = res.data
+        if(response.length > 0){
+          this.setData({
+            activityList:response.concat(this.data.activityListList),
+            maxId:response[0].id
+          })
+        }else{
+          wx.showToast({
+            title:'没有新数据了',
+            icon:"none"
+          })
+        }
+      }
+    })
 
     wx.stopPullDownRefresh({
       success: (res) => {},
