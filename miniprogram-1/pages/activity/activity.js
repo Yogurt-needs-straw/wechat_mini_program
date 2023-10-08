@@ -119,15 +119,14 @@ Page({
             icon:"none"
           })
         }
+      },
+      complete:()=>{
+        wx.stopPullDownRefresh()
+        wx.hideLoading()
       }
     })
 
-    wx.stopPullDownRefresh({
-      success: (res) => {},
-    })
-    wx.hideLoading({
-      success: (res) => {},
-    })
+   
   },
 
   /**
