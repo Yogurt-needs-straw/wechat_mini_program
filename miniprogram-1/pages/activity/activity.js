@@ -21,6 +21,7 @@ Page({
     }
     ],
     maxId:0, // 最大的ID
+    minId:0, // 最小的ID
   },
 
   doApply(nid){
@@ -50,8 +51,11 @@ Page({
       url: api.bankActivity,
       data:{},
       success:(res) => {
-        this.data.maxId = res.data[0]['id']
-        console.log(res.data);
+        if (res.data.length > 0){
+          this.data.maxId = res.data[0]['id']
+          this.data.minId = res.data[res.data.length-1]['id']
+        }
+        
         this.setData({
           activityList:res.data
         })
@@ -99,8 +103,6 @@ Page({
     // 1.获取哪些数据？
     // console.log(this.data.maxId)
 
-    
-
     // 发送网络请求，获取社区活动
     wx.request({
       method:"GET",
@@ -126,14 +128,28 @@ Page({
       }
     })
 
-   
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    // 1.发送请求，获取 min_id 比这个id更小的数据
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      method:"GET",
+      url: api.bankActivity,
+      data:{min_id:this.data.minId},
+      success:(res) => {
+        
+      },
+      complete:()=>{
+        wx.stopPullDownRefresh()
+        wx.hideLoading()
+      }
+    })
   },
 
   /**
