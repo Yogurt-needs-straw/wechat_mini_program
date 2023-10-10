@@ -143,7 +143,18 @@ Page({
       url: api.bankActivity,
       data:{min_id:this.data.minId},
       success:(res) => {
-        
+        var response = res.data
+        if(response.length > 0){
+          this.setData({
+            activityList:this.data.activityListList.concat(response),
+            minId:response[response.length-1].id
+          })
+        }else{
+          wx.showToast({
+            title:'已经到底了',
+            icon:"none"
+          })
+        }
       },
       complete:()=>{
         wx.stopPullDownRefresh()

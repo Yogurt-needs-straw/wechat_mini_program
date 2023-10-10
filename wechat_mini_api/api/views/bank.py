@@ -59,6 +59,7 @@ class VoiceView(APIView):
         return Response(result)
 
 from rest_framework.filters import BaseFilterBackend
+
 class PullDownFilter(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
         max_id = request.query_params.get("max_id")
@@ -66,9 +67,15 @@ class PullDownFilter(BaseFilterBackend):
             queryset = queryset.filter(id__gt=max_id)
         return queryset
 
+class ReachBottomFilter(BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        min_id = request.query_params.get("min_id")
+        if min_id:
+            queryset = queryset.filter(id__lt=min_id)
+        return queryset
 
 class ActivityView(ListAPIView):
     queryset = models.Activity.objects.all().order_by('-id')
     serializer_class = ActivityModelListSerializer
-    filter_backends = [PullDownFilter]
+    filter_backends = [PullDownFilter, ReachBottomFilter]
 
