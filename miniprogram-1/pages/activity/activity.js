@@ -123,7 +123,6 @@ Page({
         }
       },
       complete:()=>{
-        wx.stopPullDownRefresh()
         wx.hideLoading()
       }
     })
