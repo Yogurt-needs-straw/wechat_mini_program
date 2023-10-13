@@ -74,8 +74,19 @@ class ReachBottomFilter(BaseFilterBackend):
             queryset = queryset.filter(id__lt=min_id)
         return queryset
 
+from rest_framework.pagination import LimitOffsetPagination
+class DemoLimitOffsetPagination(LimitOffsetPagination):
+    default_limit = 2
+
+    def get_offset(self, request):
+        return 0
+
+    # 重新返回数据格式
+    def get_paginated_response(self, data):
+        return Response(data)
+
 class ActivityView(ListAPIView):
     queryset = models.Activity.objects.all().order_by('-id')
     serializer_class = ActivityModelListSerializer
     filter_backends = [PullDownFilter, ReachBottomFilter]
-
+    pagination_class = DemoLimitOffsetPagination
