@@ -129,6 +129,36 @@ Page({
 
   },
 
+  doLoadMore(){
+    // 1.发送请求，获取 min_id 比这个id更小的数据
+    wx.showLoading({
+      title: '加载中',
+    })
+    wx.request({
+      method:"GET",
+      url: api.bankActivity,
+      data:{min_id:this.data.minId},
+      success:(res) => {
+        var response = res.data
+        if(response.length > 0){
+          this.setData({
+            activityList:this.data.activityList.concat(response),
+            minId:response[response.length-1].id
+          })
+        }else{
+          wx.showToast({
+            title:'已经到底了',
+            icon:"none"
+          })
+        }
+      },
+      complete:()=>{
+        wx.stopPullDownRefresh()
+        wx.hideLoading()
+      }
+    })
+  },
+
   /**
    * 页面上拉触底事件的处理函数
    */

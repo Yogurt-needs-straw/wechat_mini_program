@@ -14,5 +14,9 @@
     </view>
   </view>
 
+  <view style="text-align: center;">
+    <text bindtap="doLoadMore">加载更多</text>
+  </view>
+
 </view>
 
