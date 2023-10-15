@@ -90,3 +90,12 @@ class ActivityView(ListAPIView):
     serializer_class = ActivityModelListSerializer
     filter_backends = [PullDownFilter, ReachBottomFilter]
     pagination_class = DemoLimitOffsetPagination
+
+    # 重写paginate_queryset方法 使其下拉加载时 全部加载 向下滚动时 分页加载
+    def paginate_queryset(self, queryset):
+        max_id = self.request.query_params.get("max_id")
+        if max_id:
+            return
+        return super().paginate_queryset(queryset)
+
+
