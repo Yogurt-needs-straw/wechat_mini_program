@@ -41,11 +41,7 @@ Page({
     // 对于活动列表（已报名，已过期）
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    // 发送网络请求，获取社区活动
+  getDataList(){
     wx.request({
       method:"GET",
       url: api.bankActivity,
@@ -59,15 +55,26 @@ Page({
         this.setData({
           activityList:res.data
         })
+      },
+      complete:()=>{
+        wx.stopPullDownRefresh()
       }
     })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+    this.getDataList()
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    
   },
 
   /**
@@ -95,6 +102,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    if(this.data.maxId === 0){
+      this.getDataList()
+      return
+    }
+
     wx.showLoading({
       title: '加载中',
     })
@@ -130,6 +142,14 @@ Page({
   },
 
   doLoadMore(){
+    if(this.data.minId === 0){
+      this.getDataList()
+      return 
+    }
+    this.getReachButtomData()
+  },
+
+  getReachButtomData(){
     // 1.发送请求，获取 min_id 比这个id更小的数据
     wx.showLoading({
       title: '加载中',
@@ -163,33 +183,9 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+
     // 1.发送请求，获取 min_id 比这个id更小的数据
-    wx.showLoading({
-      title: '加载中',
-    })
-    wx.request({
-      method:"GET",
-      url: api.bankActivity,
-      data:{min_id:this.data.minId},
-      success:(res) => {
-        var response = res.data
-        if(response.length > 0){
-          this.setData({
-            activityList:this.data.activityListList.concat(response),
-            minId:response[response.length-1].id
-          })
-        }else{
-          wx.showToast({
-            title:'已经到底了',
-            icon:"none"
-          })
-        }
-      },
-      complete:()=>{
-        wx.stopPullDownRefresh()
-        wx.hideLoading()
-      }
-    })
+    this.getReachButtomData()
   },
 
   /**
