@@ -9,7 +9,8 @@
     "pages/statistics/statistics",
     "pages/face/face",
     "pages/voice/voice",
-    "pages/activity/activity"
+    "pages/activity/activity",
+    "pages/goods/goods"
   ],
   "tabBar": {
     "selectedColor": "#b4282d",

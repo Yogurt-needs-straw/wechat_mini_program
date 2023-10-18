@@ -25,7 +25,7 @@
   <view>心率检测</view>
 </navigator>
 
-<navigator class="menu" >
+<navigator class="menu" url="/pages/goods/goods">
   <text class="far fa-credit-card" style="color:#778899"></text>
   <view>积分兑换商城</view>
 </navigator>
