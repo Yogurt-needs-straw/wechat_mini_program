@@ -74,4 +74,7 @@ class ActivityModelListSerializer(ModelSerializer):
             return False
         return True
 
-
+class GoodsListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Goods
+        fields = "__all__"

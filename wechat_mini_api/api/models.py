@@ -35,3 +35,9 @@ class JoinRecord(models.Model):
     activity = models.ForeignKey(verbose_name="活动", to="Activity", on_delete=models.CASCADE, related_name='ac')
 
     exchange = models.BooleanField(verbose_name="是否已兑换", default=False)
+
+class Goods(models.Model):
+    """ 商品和服务 """
+    img = models.ImageField(verbose_name="图片", max_length=128, upload_to='bank/%Y/%m/%d/')
+    title = models.CharField(verbose_name="标题", max_length=32)
+    price = models.IntegerField(verbose_name="积分", default=0)
