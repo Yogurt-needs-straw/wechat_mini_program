@@ -59,6 +59,12 @@
           "pathName": "pages/activity/activity",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/mine/mine",
+          "query": "",
+          "scene": null
         }
       ]
     }
