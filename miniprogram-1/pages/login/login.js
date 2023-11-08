@@ -58,11 +58,11 @@ Page({
                 // 找到上一个 + userInfo更新
                 // 对上一个页面中的值，进行修改
 
-                var pages = getCurrentPages();
-                var prevPage = pages[pages.length - 2];
-                prevPage.setData({
-                  userInfo: app.globalData.userInfo
-                })
+                // var pages = getCurrentPages();
+                // var prevPage = pages[pages.length - 2];
+                // prevPage.setData({
+                //   userInfo: app.globalData.userInfo
+                // })
 
                 wx.navigateBack()
 

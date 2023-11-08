@@ -21,16 +21,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var info = app.globalData.userInfo
-    if(info){
-      this.setData({
-        userInfo:info
-      })
-    }else{
-      this.setData({
-        userInfo:null
-      })
-    }
+    
     
   },
 
@@ -45,7 +36,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var info = app.globalData.userInfo
+    if(info){
+      this.setData({
+        userInfo:info
+      })
+    }else{
+      this.setData({
+        userInfo:null
+      })
+    }
   },
 
   /**
