@@ -102,3 +102,45 @@ class ActivityView(ListAPIView):
 class GoodsView(ListAPIView):
     queryset = models.Goods.objects.all().order_by('-id')
     serializer_class = GoodsListSerializer
+
+from rest_framework import serializers
+
+class ApplyCreateSerializer(serializers.Serializer):
+    user_uid = serializers.CharField()
+    activity_id = serializers.IntegerField()
+
+    def validate_user_uid(self, value):
+        user_object = models.UserInfo.objects.filter(uid=value).first()
+        if not user_object:
+            raise exceptions.ValidationError("用户不存在")
+        return value
+
+    def validate_activity_id(self, value):
+        activity_object = models.Activity.objects.filter(id=value).first()
+        if not activity_object:
+            raise exceptions.ValidationError("活动不存在")
+        return value
+
+class ApplyView(CreateAPIView):
+    serializer_class = ApplyCreateSerializer
+
+    def create(self, request, *args, **kwargs):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        activity_id = serializer.data.get('activity_id')
+        user_uid = serializer.data.get('user_uid')
+
+        exists = models.JoinRecord.objects.filter(activity_id=activity_id, user__uid=user_uid).exists()
+        if exists:
+            return Response({"status": False, 'error': "此用户已报名"})
+
+        user_object = models.UserInfo.objects.filter(uid=user_uid).first()
+        models.JoinRecord.objects.create(
+            activity_id=activity_id,
+            user=user_object
+        )
+
+        models.Activity.objects.filter(id=activity_id).update(count=F("count") + 1)
+
+        return Response({"status": True, 'msg': "报名成功"})

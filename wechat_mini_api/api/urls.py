@@ -11,5 +11,6 @@ urlpatterns = [
     re_path(r'^bank/voice/$', bank.VoiceView.as_view()),
     re_path(r'^bank/activity/$', bank.ActivityView.as_view()),
     re_path(r'^bank/goods/$', bank.GoodsView.as_view()),
+    re_path(r'^bank/apply/$', bank.ApplyView.as_view()),
 
 ]

@@ -24,21 +24,47 @@ Page({
     minId:0, // 最小的ID
   },
 
-  doApply(nid){
-    // 1.判断是否已登录(vuex)
+  doApply(e) {
+    var nid = e.target.dataset.aid
+    //console.log("点击报名", nid)
+    //1.判断是否已登录(vuex)
+
+    //2.未登录，则跳转到登录页面
     var userInfo = app.globalData.userInfo;
-    
-    // 2.未登录，则跳转到登录页面
-    if(!userInfo){
+    if (!userInfo) {
       wx.switchTab({
-        url:'/pages/mine/mine',
+        url: '/pages/mine/mine',
       })
       return
     }
 
-    // 3.已登录，继续请求
+    //3.已登录，继续请求【用户是否已报名；未报名和报名】
+    console.log(userInfo.uid, nid)
 
-    // 对于活动列表（已报名，已过期）
+    // 额外的：对于活动列表（已报名，已过期）
+    wx.request({
+      url: api.bankApply,
+      method: "POST",
+      data: {
+        user_uid: userInfo.uid,
+        activity_id: nid
+      },
+      success: (result) => {
+        if (result.data.status) {
+          wx.showToast({
+            title: result.data.msg,
+            duration: 2000
+          })
+        } else {
+          wx.showToast({
+            title: result.data.error,
+            duration: 2000,
+            icon: "none"
+          })
+        }
+      }
+    })
+
   },
 
   getDataList(){

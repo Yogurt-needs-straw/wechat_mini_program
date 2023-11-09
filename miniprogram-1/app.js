@@ -10,11 +10,12 @@ App({
   globalData: {
     userInfo:null
   },
-  initUserInfo: function(name,userId,avatar) {
+  initUserInfo: function(name,userId,avatar,uid) {
     var info = {
       name: name,
       userId: userId,
-      avatar: avatar
+      avatar: avatar,
+      uid: uid
     };
     this.globalData.userInfo = info
     wx.setStorageSync('userInfo', info);
