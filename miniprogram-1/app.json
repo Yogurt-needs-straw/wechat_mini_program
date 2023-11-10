@@ -11,7 +11,8 @@
     "pages/voice/voice",
     "pages/activity/activity",
     "pages/goods/goods",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/myActivity/myActivity"
   ],
   "tabBar": {
     "selectedColor": "#b4282d",

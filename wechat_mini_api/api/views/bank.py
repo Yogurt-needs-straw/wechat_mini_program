@@ -74,6 +74,16 @@ class ReachBottomFilter(BaseFilterBackend):
             queryset = queryset.filter(id__lt=min_id)
         return queryset
 
+class MineFilter(BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        uid = request.query_params.get("uid")
+        user_object = models.UserInfo.objects.filter(uid=uid).first()
+
+        if not user_object:
+            return queryset.none()
+
+        return queryset
+
 from rest_framework.pagination import LimitOffsetPagination
 class DemoLimitOffsetPagination(LimitOffsetPagination):
     default_limit = 2
