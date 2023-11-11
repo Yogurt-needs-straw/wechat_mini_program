@@ -76,11 +76,17 @@ class ReachBottomFilter(BaseFilterBackend):
 
 class MineFilter(BaseFilterBackend):
     def filter_queryset(self, request, queryset, view):
-        uid = request.query_params.get("uid")
-        user_object = models.UserInfo.objects.filter(uid=uid).first()
+        uid = request.query_params.get("user_id")
+        if not uid:
+            return queryset
 
+        user_object = models.UserInfo.objects.filter(uid=uid).first()
         if not user_object:
             return queryset.none()
+
+        # 当前用户已参加的
+        queryset = queryset.filter(ac__user=user_object)
+        # print(result, uid)
 
         return queryset
 
@@ -98,7 +104,7 @@ class DemoLimitOffsetPagination(LimitOffsetPagination):
 class ActivityView(ListAPIView):
     queryset = models.Activity.objects.all().order_by('-id')
     serializer_class = ActivityModelListSerializer
-    filter_backends = [PullDownFilter, ReachBottomFilter]
+    filter_backends = [MineFilter, PullDownFilter, ReachBottomFilter]
     pagination_class = DemoLimitOffsetPagination
 
     # 重写paginate_queryset方法 使其下拉加载时 全部加载 向下滚动时 分页加载
@@ -137,9 +143,11 @@ class ApplyView(CreateAPIView):
     def create(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        # print(serializer)
 
         activity_id = serializer.data.get('activity_id')
         user_uid = serializer.data.get('user_uid')
+        # print(user_uid)
 
         exists = models.JoinRecord.objects.filter(activity_id=activity_id, user__uid=user_uid).exists()
         if exists:

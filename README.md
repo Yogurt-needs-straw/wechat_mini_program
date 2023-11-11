@@ -209,3 +209,9 @@ changeName(){
 
 ##### 2.5 我的活动
 
+> Django ORM 知识点
+>
+> related_name 数据表反向关联
+
+
+
