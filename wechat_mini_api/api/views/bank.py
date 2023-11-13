@@ -84,6 +84,7 @@ class MineFilter(BaseFilterBackend):
         if not user_object:
             return queryset.none()
 
+        # 通过ac连表查询
         # 当前用户已参加的
         queryset = queryset.filter(ac__user=user_object)
         # print(result, uid)
