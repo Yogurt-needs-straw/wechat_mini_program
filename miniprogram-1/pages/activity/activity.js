@@ -50,6 +50,7 @@ Page({
         activity_id: nid
       },
       success: (result) => {
+        console.log(result.data)
         if (result.data.status) {
           wx.showToast({
             title: result.data.msg,

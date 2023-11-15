@@ -163,3 +163,26 @@ class ApplyView(CreateAPIView):
         models.Activity.objects.filter(id=activity_id).update(count=F("count") + 1)
 
         return Response({"status": True, 'msg': "报名成功"})
+
+
+class ExchangeView(APIView):
+
+    def get(self, request, *args, **kwargs):
+        user_id = request.query_params.get('user_id')
+        activity_id = request.query_params.get('activity_id')
+        user_object = models.UserInfo.objects.filter(uid=user_id).first()
+        record_object = models.JoinRecord.objects.filter(user=user_object, activity_id=activity_id).first()
+        if not record_object:
+            return Response({'status': False, "error": "数据不存在"})
+
+        if record_object.exchange:
+            return Response({'status': False, "error": "已申请，不能重复申请"})
+
+        record_object.exchange = True
+        record_object.save()
+
+        user_object.score = user_object.score + record_object.activity.score
+        user_object.save()
+
+        return Response({'status': True, "msg": "申请成功", "score": user_object.score})
+

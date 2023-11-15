@@ -36,6 +36,7 @@
       "outputPath": ""
     },
     "useIsolateContext": false,
+    "userConfirmedUseIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
