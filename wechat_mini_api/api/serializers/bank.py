@@ -61,8 +61,9 @@ class StatisticsListSerializer(serializers.Serializer):
     count = serializers.IntegerField()
 
 class ActivityModelListSerializer(ModelSerializer):
-    # date = serializers.DateField(format="%Y-%m-%d")
+    date = serializers.DateField(format="%Y-%m-%d")
     disabled = serializers.SerializerMethodField()
+    exchange = serializers.SerializerMethodField()
 
     class Meta:
         model = models.Activity
@@ -73,6 +74,22 @@ class ActivityModelListSerializer(ModelSerializer):
         if row.date > today:
             return False
         return True
+
+    def get_exchange(self, row):
+        request = self.context['request']
+        user_id = request.query_params.get('user_id')
+        if not user_id:
+            return False
+
+        user_object = models.UserInfo.objects.filter(uid=user_id).first()
+        if not user_object:
+            return False
+
+        record = models.JoinRecord.objects.filter(user=user_object, activity=row).first()
+        if not record:
+            return False
+        return record.exchange
+
 
 class GoodsListSerializer(serializers.ModelSerializer):
     class Meta:

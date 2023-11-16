@@ -214,6 +214,12 @@ changeName(){
 > related_name 数据表反向关联
 
 - 展示
-- 
+- 已申请 -  后端
+- 已申请 - 前端
 
-123
+> 小程序前端页面绑定
+>
+> ["拼接路径"]: 值
+>
+> ["activityList[" + index + "].exchange"]: true
+
