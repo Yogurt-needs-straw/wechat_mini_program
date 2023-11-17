@@ -223,3 +223,10 @@ changeName(){
 >
 > ["activityList[" + index + "].exchange"]: true
 
+
+
+积累
+
+- 页面设计和实现
+- 小程序代码结构 + 事件
+
