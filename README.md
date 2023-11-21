@@ -237,9 +237,17 @@ changeName(){
 ##### 3.1 知识点
 
 - 欢迎页面
+
 - 自定义tabBar
   - 官方自定义tabBar
-  - 自定义组件
+  
+  - 自定义组件（页面片段）
+  
+    ```html
+    <tabber selected="{{1}}"></tabber>
+    ```
+  
+    
 
 
 ##### 3.2 个人中心
